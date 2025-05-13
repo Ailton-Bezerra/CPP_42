@@ -6,12 +6,12 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 15:38:00 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/05/07 17:06:07 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/05/07 17:38:53 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
-#include "resources.hpp"
+#include "includes/PhoneBook.hpp"
+#include "includes/resources.hpp"
 
 PhoneBook::PhoneBook () {
 	index = 0;
@@ -25,11 +25,13 @@ std::string	GetInput (std::string info){
 	while (1) {
 		std::getline(std::cin, input);
 		if (!std::cin.good()){
-			std::cout << "\nExiting the program, bye!" << std::endl;
+			std::cout << "\n" EXITING << std::endl;
 			exit(0);
 		}
-		if (input.empty())
-			std::cout << "\nField must not be empty" << std::endl << info;
+		if (input.empty()) {
+			std::cout << RED "\nField must not be empty" RESET << std::endl;
+			std::cout << CYAN << info << RESET;
+		}
 		else
 			break ;
 	}

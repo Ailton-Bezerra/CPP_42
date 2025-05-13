@@ -6,11 +6,11 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 15:49:56 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/05/07 16:54:09 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/05/07 17:39:02 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "includes/PhoneBook.hpp"
 
 static void	print_menu(void){
 	std::cout << std::endl;
@@ -38,7 +38,7 @@ int	main(void) {
 		else if (input == "SEARCH")
 			PhoneBook.SearchContact();
 		else
-			std::cout << "\ninvalid command" << std::endl;
+			std::cout << RED "\n\tinvalid command" RESET << std::endl;
 	}
 	return (0);
 }

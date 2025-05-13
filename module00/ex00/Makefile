@@ -1,5 +1,5 @@
 NAME = megaphone
-CFLAGS = -Wall -Werror -Wextra -g3
+CFLAGS = -Wall -Werror -Wextra
 SOURCES = megaphone.cpp
 COMPILE = c++ -std=c++98
 

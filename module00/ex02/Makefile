@@ -1,12 +1,11 @@
-NAME 	:= phonebook
+NAME 	:= account
 CC      := c++ -std=c++98
 CFLAGS  := -Wextra -Wall -Werror
 
 SRCS_DIR	:= ./
-SRCS		:= $(addprefix $(SRCS_DIR), Contact.cpp PhoneBook.cpp main.cpp)
+SRCS		:= $(addprefix $(SRCS_DIR), Account.cpp tests.cpp)
 DIR_OBJ		:= .objs
 OBJS		:= $(SRCS:$(SRCS_DIR)%.cpp=$(DIR_OBJ)/%.o)
-HEADERS		:= -I ./includes
 
 GREEN		:= \033[1;32m
 END 		:= \033[0m
@@ -15,14 +14,14 @@ all: $(NAME)
 
 $(DIR_OBJ)/%.o: $(SRCS_DIR)/%.cpp
 	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) -c $< -o $@ $(HEADERS)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)
-	@$(CC) $(OBJS) $(HEADERS) -o $(NAME)
+	@$(CC) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)Done!$(END)"
 
 clean:
-	@rm -rf $(DIR_OBJ) $(DIR_OBJ_BONUS)
+	@rm -rf $(DIR_OBJ)
 	@echo -n "$(GREEN)Cleaned$(END)"
 
 fclean: clean

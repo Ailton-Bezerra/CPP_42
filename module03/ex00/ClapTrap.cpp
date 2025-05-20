@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 11:37:54 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/05/20 16:36:13 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/05/20 16:42:26 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,14 @@ ClapTrap::ClapTrap(const ClapTrap& other)
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other) {
-	std::string temp = this->_name;
-	this->_name = other._name;
-	this->_hitPoints = other._hitPoints;
-	this->_energyPoints = other._energyPoints;
-	this->_attackDamage = other._attackDamage;
-	std::cout << other._name << " atribuited to " << temp << std::endl;
+	if (this != &other) {
+		std::string temp = this->_name;
+		this->_name = other._name;
+		this->_hitPoints = other._hitPoints;
+		this->_energyPoints = other._energyPoints;
+		this->_attackDamage = other._attackDamage;
+		std::cout << other._name << " atribuited to " << temp << std::endl;
+	}
 	return (*this);
 }
 

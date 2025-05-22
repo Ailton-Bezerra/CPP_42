@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 11:37:54 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/05/22 12:18:23 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/05/22 15:03:19 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void ClapTrap::beRepaired(unsigned int amount) {
 		return ;
 	}
 	std::cout << "ClapTrap " << this->_name << " used potion, ";
-	if (this->_hitPoints == 10) {
+	if (this->_hitPoints == 100) {
 		std::cout << "HP was already full, nothing happens" << std::endl;
 		this->_energyPoints--;
 		return ;

@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 11:38:01 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/05/20 15:48:09 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/05/22 11:40:12 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,19 @@ class ClapTrap {
 		ClapTrap(const ClapTrap& other);
 		ClapTrap& operator=(const ClapTrap& other);
 
-		void attack(const std::string& target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
+		void		attack(const std::string& target);
+		void		takeDamage(unsigned int amount);
+		void		beRepaired(unsigned int amount);
+		
+		std::string	getName(void) 			const;
+		int			getHitPoints(void)		const;
+		int			getEnergyPoints(void)	const;
+		int 		getAtttackDamge(void)	const;
+		
+		void		setName(std::string name);
+		void		setHitPoints(int hp);
+		void		setEnergyPoints(int ep);
+		void		setAtttackDamge(int ad);
 		
 	private:
 		std::string _name;

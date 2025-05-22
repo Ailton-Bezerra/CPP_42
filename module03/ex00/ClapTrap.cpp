@@ -6,13 +6,13 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 11:37:54 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/05/22 11:58:34 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/05/22 12:05:26 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::~ClapTrap(void) {std::cout << this->_name << " destroyed" << std::endl;}
+ClapTrap::~ClapTrap(void) {std::cout << "ClapTrap " << this->_name << " destroyed" << std::endl;}
 
 ClapTrap::ClapTrap(void) {
 	_name = "unnamed";
@@ -24,7 +24,7 @@ ClapTrap::ClapTrap(std::string name) :
 	_hitPoints(10),
 	_energyPoints(10), 
 	_attackDamage(0) {
-	std::cout << name << " created" << std::endl;
+	std::cout << "ClapTrap " << _name << " created" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other) :

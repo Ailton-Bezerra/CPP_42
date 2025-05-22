@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 11:38:01 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/05/22 11:40:12 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/05/22 11:49:39 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 class ClapTrap {
 	public:
+		ClapTrap(void);
 		ClapTrap(std::string name);
 		~ClapTrap(void);
 		ClapTrap(const ClapTrap& other);

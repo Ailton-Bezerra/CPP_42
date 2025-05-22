@@ -6,13 +6,18 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 11:37:54 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/05/22 11:41:11 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/05/22 11:51:04 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::~ClapTrap(void) {std::cout << this->_name << " destroyed" << std::endl;}
+
+ClapTrap::ClapTrap(void) {
+	_name = "unnamed";
+	std::cout << "Default ClapTrap created" << std::endl;
+}
 
 ClapTrap::ClapTrap(std::string name) : 
 	_name(name), 

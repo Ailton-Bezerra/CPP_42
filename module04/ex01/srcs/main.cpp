@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 14:07:30 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/05/27 13:39:32 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/05/27 14:20:51 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,4 +76,6 @@ int main()
 	std::cout << "Original dire_Wolf: " << dire_wolf.getIdea(0) << std::endl;
 	std::cout << "Copy dire_Wolf: " << dire_wolf_copy.getIdea(0) << std::endl;
 	std::cout << "========================================" << std::endl;
+
+	return (0);
 }

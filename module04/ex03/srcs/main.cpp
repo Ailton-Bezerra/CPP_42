@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 16:05:21 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/03 12:49:18 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/03 16:09:29 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ int main()
 	delete bob;
 	delete me;
 	delete src;
-
+	
 	return 0;
 }

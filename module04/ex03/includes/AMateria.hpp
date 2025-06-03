@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 16:05:52 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/03 12:46:02 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/03 13:12:19 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include <iostream>
 #include "ICharacter.hpp"
 
-// While assigning a Materia to another, copying the type doesn’t make sense.
 class AMateria
 {
 	protected:

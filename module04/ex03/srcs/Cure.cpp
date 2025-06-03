@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 13:38:26 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/03 12:48:23 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/03 13:13:07 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ Cure::Cure(void) { this->_type = "cure"; }
 Cure::Cure(const Cure& other) { this->_type = other._type; }
 
 const Cure& Cure::operator=(const Cure& other) {
-	if (this != &other) {
-		this->_type = other._type;
-		*this = other;
-	}
+	(void)other;
 	return (*this);
 }
 

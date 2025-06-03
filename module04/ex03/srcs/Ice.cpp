@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 13:31:49 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/03 12:48:51 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/03 13:13:17 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ Ice::Ice(void) { this->_type = "ice"; }
 Ice::Ice(const Ice& other) { this->_type = other._type; }
 
 const Ice& Ice::operator=(const Ice& other) {
-	if (this != &other) {
-		this->_type = other._type;
-		*this = other;
-	}
+	(void)other;
 	return (*this);
 }
 

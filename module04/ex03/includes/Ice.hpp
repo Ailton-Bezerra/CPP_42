@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/28 13:28:43 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/03 12:46:49 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/03 16:14:39 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,5 @@ class Ice : public AMateria {
 		Ice*	clone(void) const;
 		void	use(ICharacter& target);
 };
-
 
 #endif

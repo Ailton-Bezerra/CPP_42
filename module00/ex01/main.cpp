@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 15:49:56 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/09 18:35:45 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/10 12:18:43 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ int	main(void) {
 		if (!std::cin.good() || input == "EXIT") {
 			std::cout << "\n" EXITING << std::endl;
 			break ;
-		}ls
-		
+		}
 		else if (input == "ADD")
 			PhoneBook.AddContact();
 		else if (input == "SEARCH")

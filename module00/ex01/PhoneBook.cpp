@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 15:38:00 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/05/07 17:38:53 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/10 12:09:44 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void PhoneBook::SearchContact(void)
 	
 	int i = getindex();
 	if (contacts[i].GetFirstName().empty())
-		std::cout << "Contatc " << i << "is empty" << std::endl;
+		std::cout << "Contact " << i + 1 << " is empty" << std::endl;
 	else {
 		std::cout << std::endl;
 		std::cout << FN << contacts[i].GetFirstName() << std::endl;

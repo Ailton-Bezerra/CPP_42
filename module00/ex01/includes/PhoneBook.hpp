@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 15:33:59 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/05/07 17:43:47 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/10 12:22:43 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class PhoneBook {
 	private:
 		Contact	contacts[8];
 		int		index;
-		int		contact_num;	
+		int		contact_num;
 
 	public: 
 		PhoneBook();

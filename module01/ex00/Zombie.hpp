@@ -6,10 +6,9 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 14:05:00 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/05/13 14:31:13 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/11 13:43:50 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef ZOMBIE_HPP
 #define ZOMBIE_HPP

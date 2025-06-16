@@ -6,14 +6,13 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/04 14:21:10 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/09 18:32:12 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/16 13:04:28 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include "Point.hpp"
 
-// #include <cmath> // posso utilizar o roudf dessa lib
 static float area(int x1, int y1, int x2, int y2, int x3, int y3) {
 	float result = (x1 * (y2 - y3) + x2 *(y3 - y1) + x3 * (y1 - y2)) / 2.0;
 	return (result < 0) ? -result : result;
@@ -44,5 +43,7 @@ bool bsp( Point const a, Point const b, Point const c, Point const point) {
 		c.getX().toInt(), c.getY().toInt()
 	);
 
+	if (areaPAB == 0 || areaPBC == 0 || areaPAC == 0)
+		return false;
 	return (areaABC == (areaPBC + areaPAB + areaPAC));
 }

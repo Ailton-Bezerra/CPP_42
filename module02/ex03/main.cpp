@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 12:53:30 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/09 18:33:07 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/16 13:07:50 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,12 @@ int main()
 	Point C(20, 0);
 
 	Point P(15, 10);
+	
+	// Point A(0, 0);
+	// Point B(4, 0);
+	// Point C(2, 4);
+
+	// Point P(2, 0); // <-- sobre a aresta AB
 	
 	if (bsp(A, B, C, P))
 		std::cout << "Inside\n";

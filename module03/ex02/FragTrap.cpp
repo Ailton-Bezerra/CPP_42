@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 15:07:02 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/05/22 15:38:34 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/16 16:23:11 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@ FragTrap::FragTrap(void) : ClapTrap() {std::cout << "Default FragTrap created" <
 FragTrap::~FragTrap(void) {std::cout << "FragTrap " << getName() << " destroyed" << std::endl;}
 		
 FragTrap::FragTrap(std::string name) : ClapTrap(name) {
-		this->setAtttackDamge(30);
-		this->setEnergyPoints(100);
-		this->setHitPoints(100);
+	this->setAtttackDamge(30);
+	this->setEnergyPoints(100);
+	this->setHitPoints(100);
+	std::cout << "FragTrap " << this->getName() << " created" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap& other) : ClapTrap(other) {}

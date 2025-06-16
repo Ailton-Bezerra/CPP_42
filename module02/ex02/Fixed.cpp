@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 12:47:59 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/04 14:18:48 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/16 12:47:57 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,59 +52,71 @@ std::ostream& operator<<(std::ostream& os,  const Fixed& f) {
 	return (os);
 }
 
+//=========================== Overload operators ==============================
+
 bool	Fixed::operator>(const Fixed& other) {
-	if (this->toFloat() > other.toFloat())
+	if (this->_fpValue > other._fpValue)
 		return (true);
 	return (false);
 }
 
 bool	Fixed::operator<(const Fixed& other) {
-	if (this->toFloat() < other.toFloat())
+	if (this->_fpValue < other._fpValue)
 		return (true);
 	return (false);
 }
 
 bool	Fixed::operator>=(const Fixed& other) {
-	if (this->toFloat() >= other.toFloat())
+	if (this->_fpValue >= other._fpValue)
 		return (true);
 	return (false);
 }
 
 bool	Fixed::operator<=(const Fixed& other) {
-	if (this->toFloat() <= other.toFloat())
+	if (this->_fpValue <= other._fpValue)
 		return (true);
 	return (false);
 }
-	
+
 bool	Fixed::operator==(const Fixed& other) {
-	if (this->toFloat() == other.toFloat())
+	if (this->_fpValue == other._fpValue)
 		return (true);
 	return (false);
 }
 
 bool	Fixed::operator!=(const Fixed& other) {
-	if (this->toFloat() != other.toFloat())
+	if (this->_fpValue != other._fpValue)
 		return (true);
 	return (false);
 }
 
 Fixed	Fixed::operator+(const Fixed& other) const {
-	return (Fixed(this->toFloat() + other.toFloat()));
+	Fixed result;
+	
+	result._fpValue = this->_fpValue + other._fpValue;
+	return result;
 }
 
 Fixed	Fixed::operator-(const Fixed& other) const {
-	return (Fixed(this->toFloat() - other.toFloat()));
+	Fixed result;
+	
+	result._fpValue = this->_fpValue - other._fpValue;
+	return result;
 }
 
-// revisar
 Fixed	Fixed::operator*(const Fixed& other) const {
-	// result = this->_value * other._value;
-	// result = result >> fractional_bits;
-	return (Fixed(this->toFloat() * other.toFloat()));
+	Fixed newFixed;
+	
+	newFixed._fpValue = (this->_fpValue * other._fpValue) >> this->_fractionalBits;
+	return (newFixed);
 }
 
 Fixed	Fixed::operator/(const Fixed& other) const {
-	return (Fixed(this->toFloat() / other.toFloat()));
+	Fixed result;
+	
+	long long numerator = (long long)this->_fpValue << this->_fractionalBits;
+	result._fpValue = numerator / other._fpValue;
+	return result;
 }
 
 Fixed	Fixed::operator++(int) {
@@ -130,25 +142,25 @@ Fixed&	Fixed::operator--(void) {
 }
 
 Fixed& Fixed::min(Fixed& a, Fixed& b) {
-	if (a.toFloat() < b.toFloat())
+	if (a._fpValue < b._fpValue)
 		return (a);
 	return (b);
 }
 
 const Fixed& Fixed::min(const Fixed& a, const Fixed& b) {
-	if (a.toFloat() < b.toFloat())
+	if (a._fpValue < b._fpValue)
 		return (a);
 	return (b);
 }
 
 Fixed& Fixed::max(Fixed& a, Fixed& b) {
-	if (a.toFloat() > b.toFloat())
+	if (a._fpValue > b._fpValue)
 		return (a);
 	return (b);
 }
 
 const Fixed& Fixed::max(const Fixed& a, const Fixed& b) {
-	if (a.toFloat() > b.toFloat())
+	if (a._fpValue > b._fpValue)
 		return (a);
 	return (b);
 }

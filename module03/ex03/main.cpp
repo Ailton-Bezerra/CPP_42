@@ -6,12 +6,10 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 11:48:05 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/05/23 17:01:34 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/16 16:36:15 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "FragTrap.hpp"
-// #include "ScavTrap.hpp"
 #include "DiamondTrap.hpp"
 
 int main(void) {

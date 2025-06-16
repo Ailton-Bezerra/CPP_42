@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 14:12:20 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/05/23 15:30:39 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/16 16:38:45 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@ class DiamondTrap: public ScavTrap, public FragTrap {
 		DiamondTrap& operator=(const DiamondTrap& other);
 	
 		std::string getName(void)			const;
-		// int			getAtttackDamge(void)	const;
-		// int			getEnergyPoints(void)	const;
-		// int			getHitPoints(void)		const;
 
 		using ScavTrap::attack;
 		void whoAmI();
@@ -36,6 +33,5 @@ class DiamondTrap: public ScavTrap, public FragTrap {
 		std::string _name;
 
 };
-
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 14:12:20 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/06/16 16:38:45 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/17 13:04:00 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ class DiamondTrap: public ScavTrap, public FragTrap {
 
 	private:
 		std::string _name;
-
 };
 
 #endif

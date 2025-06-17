@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 11:37:54 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/05/23 17:05:16 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/06/17 12:45:03 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 ClapTrap::ClapTrap(void) {
 	_name = "unnamed";
+	_hitPoints = 10;
+	_energyPoints = 10; 
+	_attackDamage = 0;
 	std::cout << "Default ClapTrap created" << std::endl;
 }
 ClapTrap::~ClapTrap(void) {std::cout << "ClapTrap " << this->_name << " destroyed" << std::endl;}

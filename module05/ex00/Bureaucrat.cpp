@@ -6,19 +6,25 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 15:37:03 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/22 18:50:57 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/22 19:14:35 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 // ===================== ORTHODOX CANONICAL FORM ==============================
+Bureaucrat::Bureaucrat(): _name("Default"), _grade(150) {}
 
-Bureaucrat::Bureaucrat(): _name("Default"), _grade(150) {};
+Bureaucrat::~Bureaucrat() {}
 
-Bureaucrat::Bureaucrat() {};
+Bureaucrat::Bureaucrat(std::string name, int grade): _name(name), _grade(grade) {
+	if (grade < 1)
+		throw GradeTooLowException();
+	else if (grade > 150)
+		throw GradeTooHighException();
+}
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other):
- _name(other.getName()), _grade(other.getGrade()) {};
+ _name(other.getName()), _grade(other.getGrade()) {}
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other) {
 	if (this != &other)
@@ -53,8 +59,8 @@ void Bureaucrat::incrementGrade() {
 		this->_grade--;
 	} catch (const std::exception& e) { //ver se é necessario msm utilizar const aqui
 		std::cerr << "Exception caught by Bureaucrat " << this->_name
-					<< "when try to increment grade: " << e.what()
-					<< "\n current grade: " << this->_name
+					<< " when try to increment grade: " << e.what()
+					<< "\ncurrent grade: " << this->_name
 					<< std::endl;
 	}
 }
@@ -66,14 +72,14 @@ void Bureaucrat::decrementGrade() {
 		this->_grade++;
 	} catch (const std::exception& e) { //ver se é necessario msm utilizar const aqui
 		std::cerr << "Exception caught by Bureaucrat " << this->_name
-					<< "when try to decrement grade: " << e.what()
-					<< "\n current grade: " << this->_name
+					<< " when try to decrement grade: " << e.what()
+					<< "\ncurrent grade: " << this->_grade
 					<< std::endl;
 	}
 }
 // ============================================================================
 
-std::ostream& operator<<(std::ostream os, const Bureaucrat& bureaucrat) {
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat) {
 	os << bureaucrat.getName() << ", bureaucrat grade" << bureaucrat.getGrade()
 		<< std::endl;
 	return (os);

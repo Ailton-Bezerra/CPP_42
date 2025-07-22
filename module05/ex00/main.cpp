@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 15:36:11 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/22 18:50:18 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/22 19:17:46 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,30 @@ int main() {
         std::cerr << "Exceção capturada ao criar Bureaucrat: " << e.what() << std::endl;
     }
 
+	 std::cout << "------------------------" << std::endl;
+
+    try {
+        std::cout << "Criando Bureaucrat com grade inválido (0):" << std::endl;
+        Bureaucrat invalid("Charlie", 0); // Deve lançar na construção
+    }
+    catch (const std::exception& e) {
+        std::cerr << "Exceção capturada ao criar Bureaucrat: " << e.what() << std::endl;
+    }
+
+	std::cout << "------------------------" << std::endl;
+
+    try {
+        std::cout << "Criando Bureaucrat com grade 150 (limite inferior):" << std::endl;
+        Bureaucrat low("Bob", 150);
+        std::cout << low.getName() << ", grade: " << low.getGrade() << std::endl;
+
+        std::cout << "Tentando incrementar:" << std::endl;
+        low.incrementGrade();
+		std::cout << low.getName() << ", grade: " << low.getGrade() << std::endl;
+    }
+    catch (const Bureaucrat::GradeTooLowException& e) {
+        std::cerr << "Exceção capturada: " << e.what() << std::endl;
+    }
+	
     return 0;
 }

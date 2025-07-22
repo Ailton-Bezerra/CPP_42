@@ -1,10 +1,9 @@
-NAME 	:= recap
+NAME 	:= Bureaucrat
 CC      := c++ -std=c++98
 CFLAGS  := -Wextra -Wall -Werror -Wshadow
 
-# SRCS_DIR	:= ./srcs
-# SRCS		:= $(addprefix $(SRCS_DIR), main.cpp )
-SRCS		:= $(main.cpp Bureaucrat.hpp Bureaucrat.cpp)
+SRCS_DIR	:= ./
+SRCS		:= $(addprefix $(SRCS_DIR), main.cpp Bureaucrat.cpp)
 DIR_OBJ		:= .objs
 OBJS		:= $(SRCS:$(SRCS_DIR)%.cpp=$(DIR_OBJ)/%.o)
 

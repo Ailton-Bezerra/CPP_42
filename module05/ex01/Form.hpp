@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 18:19:17 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/25 17:58:55 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/29 17:54:43 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,6 @@ class Form {
 		const int 			_gradeToExec;
 };
 
-std::ostream& operator<<(std::ostream os, const Form& other);
+std::ostream& operator<<(std::ostream& os, const Form& other);
 
 #endif

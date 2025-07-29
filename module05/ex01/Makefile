@@ -1,4 +1,4 @@
-NAME 	:= Bureaucrat
+NAME 	:= maggot
 CC      := c++ -std=c++98
 CFLAGS  := -Wextra -Wall -Werror -Wshadow
 

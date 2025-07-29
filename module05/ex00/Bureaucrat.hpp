@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 16:13:05 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/22 19:08:34 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/29 19:57:13 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,5 @@ class Bureaucrat {
 		int _grade;
 };
 
-std::ostream& operator<<(std::ostream os, const Bureaucrat& other);
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& other);
 #endif

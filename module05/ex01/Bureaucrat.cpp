@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 15:37:03 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/29 19:51:57 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/30 14:19:02 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ const std::string& Bureaucrat::getName() const{
 
 // ================================= METHODS ==================================
 
-void	Bureaucrat::signForm(Form& form) {
+void	Bureaucrat::signForm(AForm& form) {
 	try {
 		form.beSigned(*this);
 		std::cout << this->_name << " signed " << form.getName() << std::endl;

@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 18:19:17 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/29 17:54:43 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/30 14:19:02 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 
 class Bureaucrat; // Forward declaration
 
-class Form {
+class AForm {
 	public:
-		Form();
-		~Form();
-		Form(const Form& other);
-		Form(const std::string name, const int gradeToSign, const int gradeToExec);
-		Form& operator=(const Form& other);
+		AForm();
+		~AForm();
+		AForm(const AForm& other);
+		AForm(const std::string name, const int gradeToSign, const int gradeToExec);
+		AForm& operator=(const AForm& other);
 
 		void beSigned(const Bureaucrat& bureaucrat);
 
@@ -52,6 +52,6 @@ class Form {
 		const int 			_gradeToExec;
 };
 
-std::ostream& operator<<(std::ostream& os, const Form& other);
+std::ostream& operator<<(std::ostream& os, const AForm& other);
 
 #endif

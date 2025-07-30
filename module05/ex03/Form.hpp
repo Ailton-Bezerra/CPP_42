@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 18:19:17 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/23 18:29:35 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/30 14:19:02 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 
 #include "Bureaucrat.hpp"
 
-class Form {
+class AForm {
 	public:
-		Form();
-		~Form();
-		Form(const Form& other);
+		AForm();
+		~AForm();
+		AForm(const AForm& other);
 		// construtor com argumento	
 		// Form(std::string name, int grade);
-		Form& operator=(const Form& other);
+		AForm& operator=(const AForm& other);
 
 		void beSigned(const Bureaucrat& bureaucrat);
 

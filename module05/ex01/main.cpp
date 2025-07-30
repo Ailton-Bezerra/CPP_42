@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 15:36:11 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/29 18:26:54 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/30 14:19:02 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,13 @@ int main() {
 
         // Test creating Form with valid grades
         std::cout << CYAN << "\nCreating Form with valid grades..." << RESET << std::endl;
-        Form formA("Form A", 50, 100);
+        AForm formA("Form A", 50, 100);
         std::cout << GREEN << "Success: " << formA << RESET << std::endl;
 
         // Test creating Form with invalid grade (too high)
         std::cout << CYAN << "\nCreating Form with invalid high grade..." << RESET << std::endl;
         try {
-            Form invalidFormHigh("Invalid Form High", 0, 100);
+            AForm invalidFormHigh("Invalid Form High", 0, 100);
         } catch (const std::exception& e) {
             std::cerr << RED << "Exception caught: " << e.what() << RESET << std::endl;
         }
@@ -73,7 +73,7 @@ int main() {
         // Test creating Form with invalid grade (too low)
         std::cout << CYAN << "\nCreating Form with invalid low grade..." << RESET << std::endl;
         try {
-            Form invalidFormLow("Invalid Form Low", 50, 151);
+            AForm invalidFormLow("Invalid Form Low", 50, 151);
         } catch (const std::exception& e) {
             std::cerr << RED << "Exception caught: " << e.what() << RESET << std::endl;
         }

@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 18:19:07 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/30 19:01:22 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/31 16:49:41 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ const char* AForm::isNotSignedException::what() const throw() {
 }
 // ============================================================================
 
-// std::ostream& operator<<(std::ostream os, const Form& other);
 std::ostream& operator<<(std::ostream& os, const AForm& Form) {
 	os << Form.getName() << ": Signed: " << Form.getIsSigned()
 		<< ": Grade to sign: " << Form.getGradeToSign()

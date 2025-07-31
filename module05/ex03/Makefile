@@ -4,7 +4,7 @@ CFLAGS  := -Wextra -Wall -Werror -Wshadow
 
 SRCS_DIR	:= ./srcs
 SRCS		:= $(addprefix $(SRCS_DIR), main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp \
-				PresidentialPardonForm.cpp RobotomyRequestForm.cpp )
+				PresidentialPardonForm.cpp RobotomyRequestForm.cpp Intern.cpp)
 DIR_OBJ		:= .objs
 OBJS		:= $(SRCS:$(SRCS_DIR)%.cpp=$(DIR_OBJ)/%.o)
 

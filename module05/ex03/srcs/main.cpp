@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 17:35:14 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/30 20:18:44 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/31 16:47:20 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,26 @@
 #include "../includes/ShrubberyCreationForm.hpp"
 #include "../includes/RobotomyRequestForm.hpp"
 #include "../includes/PresidentialPardonForm.hpp"
+#include "../includes/Intern.hpp"
 #include <iostream>
 
 int main() {
     try {
+		std::cout << "\nTesting intern class" << std::endl;
+		Intern someRandomIntern;
+		AForm* rrf;
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		if (rrf)
+			std::cout << *rrf << std::endl;
+		rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
+		if (rrf)
+			std::cout << *rrf << std::endl;
+		rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+		if (rrf)
+			std::cout << *rrf << std::endl;
+		rrf = someRandomIntern.makeForm("unknown form", "Bender");
+		if (rrf)
+			std::cout << *rrf << std::endl;
         // Create a Bureaucrat with high grade
         Bureaucrat bob("Bob", 1);
 

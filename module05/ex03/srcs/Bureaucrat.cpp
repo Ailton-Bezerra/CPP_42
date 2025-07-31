@@ -6,11 +6,11 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 15:37:03 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/22 19:14:35 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/30 19:03:34 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "../includes/Bureaucrat.hpp"
 // ===================== ORTHODOX CANONICAL FORM ==============================
 Bureaucrat::Bureaucrat(): _name("Default"), _grade(150) {}
 
@@ -18,9 +18,9 @@ Bureaucrat::~Bureaucrat() {}
 
 Bureaucrat::Bureaucrat(std::string name, int grade): _name(name), _grade(grade) {
 	if (grade < 1)
-		throw GradeTooLowException();
-	else if (grade > 150)
 		throw GradeTooHighException();
+	else if (grade > 150)
+		throw GradeTooLowException();
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other):
@@ -43,18 +43,32 @@ const std::string& Bureaucrat::getName() const{
 }
 // ============================================================================
 
-// ============================== EXCEPTIONS ==================================
-const char* Bureaucrat::GradeTooHighException::what() const throw() {
-	return ("Grade is too high");
-}
-
-const char* Bureaucrat::GradeTooLowException::what() const throw() {
-	return ("Grade is too low");
-}
-
-void Bureaucrat::incrementGrade() {
+// ================================= METHODS ==================================
+void	Bureaucrat::executeForm(AForm const & form) const {
 	try {
-		if (this->_grade <= 1)
+		form.execute(*this);
+		std::cout << this->_name << " executed the form" << std::endl;
+	}
+	catch (std::exception& e) {
+		std::cout << this->_name << " could not execute the form because: " << e.what() << std::endl;
+	}
+}
+
+void	Bureaucrat::signForm(AForm& form) {
+	try {
+		form.beSigned(*this);
+		std::cout << this->_name << " signed " << form.getName() << std::endl;
+	} 
+	catch (const std::exception& e) {
+		std::cout << this->_name << " couldn’t sign " << form.getName()
+					<< " because " << e.what() << std::endl;
+	}
+	
+}
+
+void	Bureaucrat::incrementGrade() {
+	try {
+		if (this->_grade < 1)
 			throw GradeTooHighException();
 		this->_grade--;
 	} catch (const std::exception& e) { //ver se é necessario msm utilizar const aqui
@@ -65,9 +79,9 @@ void Bureaucrat::incrementGrade() {
 	}
 }
 
-void Bureaucrat::decrementGrade() {
+void	Bureaucrat::decrementGrade() {
 	try {
-		if (this->_grade >= 150)
+		if (this->_grade > 150)
 			throw GradeTooLowException();
 		this->_grade++;
 	} catch (const std::exception& e) { //ver se é necessario msm utilizar const aqui
@@ -79,8 +93,19 @@ void Bureaucrat::decrementGrade() {
 }
 // ============================================================================
 
+// ============================== EXCEPTIONS ==================================
+const char* Bureaucrat::GradeTooHighException::what() const throw() {
+	return ("Grade is too high");
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw() {
+	return ("Grade is too low");
+}
+
+// ============================================================================
+
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat) {
-	os << bureaucrat.getName() << ", bureaucrat grade" << bureaucrat.getGrade()
+	os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade()
 		<< std::endl;
 	return (os);
 }

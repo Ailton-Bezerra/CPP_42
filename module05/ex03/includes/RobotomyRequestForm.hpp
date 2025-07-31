@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/23 18:19:17 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/30 14:19:02 by ailbezer         ###   ########.fr       */
+/*   Created: 2025/07/30 14:17:41 by ailbezer          #+#    #+#             */
+/*   Updated: 2025/07/30 18:52:30 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-#define FORM_HPP
+#ifndef ROBOTOMYREQUESTFORM
+#define ROBOTOMYREQUESTFORM
 
-#include "Bureaucrat.hpp"
+#include "./Bureaucrat.hpp"
 
-class AForm {
+class RobotomyRequestForm: public AForm {
 	public:
-		AForm();
-		~AForm();
-		AForm(const AForm& other);
-		// construtor com argumento	
-		// Form(std::string name, int grade);
-		AForm& operator=(const AForm& other);
-
-		void beSigned(const Bureaucrat& bureaucrat);
-
-	private:
-		const std::string	_name;
-		bool				_isSigned;
-		const int 			_gradeToSign;
-		const int 			_gradeToExec;
-}
+		RobotomyRequestForm();
+		~RobotomyRequestForm();
+		RobotomyRequestForm(const std::string target);
+		RobotomyRequestForm(const RobotomyRequestForm& other);
+		RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
+		
+		void	executeAction() const;
+};
 
 #endif

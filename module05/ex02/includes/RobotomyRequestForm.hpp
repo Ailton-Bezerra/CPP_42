@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 14:17:41 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/30 14:36:04 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/30 18:52:30 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,16 @@
 #define ROBOTOMYREQUESTFORM
 
 #include "./Bureaucrat.hpp"
-//  Required grades: sign 72, exec 45
-// Makes some drilling noises, then informs that <target> has been robotomized
-// successfully 50% of the time. Otherwise, it informs that the robotomy failed.
 
-class RobotomyRequestForm {
+class RobotomyRequestForm: public AForm {
 	public:
 		RobotomyRequestForm();
 		~RobotomyRequestForm();
+		RobotomyRequestForm(const std::string target);
 		RobotomyRequestForm(const RobotomyRequestForm& other);
-		// RobotomyRequestForm(std::string name, int grade);
 		RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
 		
+		void	executeAction() const;
 };
 
 #endif

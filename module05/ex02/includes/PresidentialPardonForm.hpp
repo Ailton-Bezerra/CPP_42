@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 14:17:38 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/30 14:36:10 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/07/30 18:52:22 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,15 @@
 
 #include "./Bureaucrat.hpp"
 
-// Required grades: sign 25, exec 5
-// Informs that <target> has been pardoned by Zaphod Beeblebrox
-
-// All of them take only one parameter in their constructor: the target of the form. For
-// example, "home" if you want to plant shrubbery at home.
-// provavelmente algo do tipo: PresidentialPardonForm(const std::string& target);
-
-
-class PresidentialPardonForm {
+class PresidentialPardonForm: public AForm {
 	public:
 		PresidentialPardonForm();
 		~PresidentialPardonForm();
+		PresidentialPardonForm(const std::string target);
 		PresidentialPardonForm(const PresidentialPardonForm& other);
-		// PresidentialPardonForm(std::string name, int grade);
 		PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
 		
+		void	executeAction() const;
 };
 
 #endif

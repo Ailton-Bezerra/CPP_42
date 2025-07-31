@@ -5,99 +5,81 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/21 15:36:11 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/30 14:45:07 by ailbezer         ###   ########.fr       */
+/*   Created: 2025/07/30 17:35:14 by ailbezer          #+#    #+#             */
+/*   Updated: 2025/07/30 20:18:44 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
-#include "../includes/AForm.hpp"
-
-#define RESET "\033[0m"
-#define RED "\033[31m"
-#define GREEN "\033[32m"
-#define CYAN "\033[36m"
-#define MAGENTA "\033[35m"
-
-void printHeader(const std::string& title) {
-    std::cout << MAGENTA << "========== " << title << " ==========" << RESET << std::endl;
-}
+#include "../includes/ShrubberyCreationForm.hpp"
+#include "../includes/RobotomyRequestForm.hpp"
+#include "../includes/PresidentialPardonForm.hpp"
+#include <iostream>
 
 int main() {
     try {
-        printHeader("Bureaucrat Tests");
+        // Create a Bureaucrat with high grade
+        Bureaucrat bob("Bob", 1);
 
-        // Test creating Bureaucrat with valid grade
-        std::cout << CYAN << "\nCreating Bureaucrat with valid grade..." << RESET << std::endl;
-        Bureaucrat john("John Doe", 42);
-        std::cout << GREEN << "Success: " << john << RESET << std::endl;
+        // Create and test ShrubberyCreationForm
+        std::cout << "\nTesting ShrubberyCreationForm with Bob (grade 1):" << std::endl;
+        ShrubberyCreationForm shrubbery("home");
+        bob.signForm(shrubbery);
+        bob.executeForm(shrubbery);
 
-        // Test creating Bureaucrat with invalid grade (too high)
-        std::cout << CYAN << "\nCreating Bureaucrat with invalid high grade..." << RESET << std::endl;
-        try {
-            Bureaucrat invalidHigh("Invalid High", 0);
-        } catch (const std::exception& e) {
-            std::cerr << RED << "Exception caught: " << e.what() << RESET << std::endl;
-        }
+        // Create and test RobotomyRequestForm
+        std::cout << "\nTesting RobotomyRequestForm with Bob (grade 1):" << std::endl;
+        RobotomyRequestForm robotomy("Alice");
+        bob.signForm(robotomy);
+        bob.executeForm(robotomy);
+		bob.executeForm(robotomy);
+						
+        // Create and test PresidentialPardonForm
+        std::cout << "\nTesting PresidentialPardonForm with Bob (grade 1):" << std::endl;
+        PresidentialPardonForm pardon("Charlie");
+        bob.signForm(pardon);
+        bob.executeForm(pardon);
 
-        // Test creating Bureaucrat with invalid grade (too low)
-        std::cout << CYAN << "\nCreating Bureaucrat with invalid low grade..." << RESET << std::endl;
-        try {
-            Bureaucrat invalidLow("Invalid Low", 151);
-        } catch (const std::exception& e) {
-            std::cerr << RED << "Exception caught: " << e.what() << RESET << std::endl;
-        }
+        // Create a Bureaucrat with lower grade
+        Bureaucrat alice("Alice", 50);
 
-        // Test incrementing and decrementing Bureaucrat grade
-        std::cout << CYAN << "\nIncrementing and decrementing Bureaucrat grade..." << RESET << std::endl;
-        john.incrementGrade();
-        std::cout << GREEN << "After increment: " << john << RESET << std::endl;
-        john.decrementGrade();
-        std::cout << GREEN << "After decrement: " << john << RESET << std::endl;
+        // Attempt to sign and execute forms with lower grade Bureaucrat
+        std::cout << "\nTesting ShrubberyCreationForm with Alice (grade 50):" << std::endl;
+        ShrubberyCreationForm shrubbery2("garden");
+        alice.signForm(shrubbery2);
+        alice.executeForm(shrubbery2);
 
-        printHeader("Form Tests");
+        std::cout << "\nTesting RobotomyRequestForm with Alice (grade 50):" << std::endl;
+        RobotomyRequestForm robotomy2("Bob");
+        alice.signForm(robotomy2);
+        alice.executeForm(robotomy2);
 
-        // Test creating Form with valid grades
-        std::cout << CYAN << "\nCreating Form with valid grades..." << RESET << std::endl;
-        AForm formA("Form A", 50, 100);
-        std::cout << GREEN << "Success: " << formA << RESET << std::endl;
+        std::cout << "\nTesting PresidentialPardonForm with Alice (grade 50):" << std::endl;
+        PresidentialPardonForm pardon2("Dave");
+        alice.signForm(pardon2);
+        alice.executeForm(pardon2);
 
-        // Test creating Form with invalid grade (too high)
-        std::cout << CYAN << "\nCreating Form with invalid high grade..." << RESET << std::endl;
-        try {
-            AForm invalidFormHigh("Invalid Form High", 0, 100);
-        } catch (const std::exception& e) {
-            std::cerr << RED << "Exception caught: " << e.what() << RESET << std::endl;
-        }
+        // Create a Bureaucrat with very low grade
+        Bureaucrat charlie("Charlie", 150);
 
-        // Test creating Form with invalid grade (too low)
-        std::cout << CYAN << "\nCreating Form with invalid low grade..." << RESET << std::endl;
-        try {
-            AForm invalidFormLow("Invalid Form Low", 50, 151);
-        } catch (const std::exception& e) {
-            std::cerr << RED << "Exception caught: " << e.what() << RESET << std::endl;
-        }
+        // Attempt to sign and execute forms with very low grade Bureaucrat
+        std::cout << "\nTesting ShrubberyCreationForm with Charlie (grade 150):" << std::endl;
+        ShrubberyCreationForm shrubbery3("park");
+        charlie.signForm(shrubbery3);
+        charlie.executeForm(shrubbery3);
 
-        // Test signing form with Bureaucrat
-        std::cout << CYAN << "\nTesting signing form with valid Bureaucrat..." << RESET << std::endl;
-        try {
-            john.signForm(formA);
-            std::cout << GREEN << "Success: " << formA << RESET << std::endl;
-        } catch (const std::exception& e) {
-            std::cerr << RED << "Exception caught: " << e.what() << RESET << std::endl;
-        }
+        std::cout << "\nTesting RobotomyRequestForm with Charlie (grade 150):" << std::endl;
+        RobotomyRequestForm robotomy3("Eve");
+        charlie.signForm(robotomy3);
+        charlie.executeForm(robotomy3);
 
-        // Test signing form with Bureaucrat with insufficient grade
-        std::cout << CYAN << "\nTesting signing form with insufficient grade Bureaucrat..." << RESET << std::endl;
-        Bureaucrat lowGradeBureaucrat("Low Grade", 100);
-        try {
-            lowGradeBureaucrat.signForm(formA);
-        } catch (const std::exception& e) {
-            std::cerr << RED << "Exception caught: " << e.what() << RESET << std::endl;
-        }
+        std::cout << "\nTesting PresidentialPardonForm with Charlie (grade 150):" << std::endl;
+        PresidentialPardonForm pardon3("Frank");
+        charlie.signForm(pardon3);
+        charlie.executeForm(pardon3);
 
-    } catch (const std::exception& e) {
-        std::cerr << RED << "\nException caught in main: " << e.what() << RESET << std::endl;
+    } catch (const std::exception &e) {
+        std::cerr << "Exception: " << e.what() << std::endl;
     }
 
     return 0;

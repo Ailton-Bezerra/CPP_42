@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 18:19:17 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/30 18:52:09 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/08/01 14:09:13 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Bureaucrat; // Forward declaration
 class AForm {
 	public:
 		AForm();
-		~AForm();
+		virtual ~AForm();
 		AForm(const AForm& other);
 		AForm(const std::string name, const int gradeToSign, const int gradeToExec, const std::string target);
 		AForm& operator=(const AForm& other);

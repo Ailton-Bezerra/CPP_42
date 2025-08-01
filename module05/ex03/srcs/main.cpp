@@ -43,19 +43,19 @@ int main() {
 
 		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 		printFormPtr(rrf);
-		// delete rrf;
+		delete rrf;
 
 		rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
 		printFormPtr(rrf);
-		// delete rrf;
+		delete rrf;
 
 		rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
 		printFormPtr(rrf);
-		// delete rrf;
+		delete rrf;
 
 		rrf = someRandomIntern.makeForm("unknown form", "Bender");
 		printFormPtr(rrf);
-		// delete rrf;
+		delete rrf;
 
 		printHeader("Form Execution Tests");
 

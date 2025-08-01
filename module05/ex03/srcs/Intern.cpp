@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 14:11:12 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/31 16:37:52 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/08/01 14:28:27 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ Intern::Intern() {}
 
 Intern::~Intern() {}
 
-Intern::Intern(const Intern& other) {
-	(void)other;
-}
+Intern::Intern(const Intern& other) { (void)other; }
 
 Intern& Intern::operator=(const Intern& other) {
 	(void)other;
@@ -33,31 +31,25 @@ Intern& Intern::operator=(const Intern& other) {
 // ================================= METHODS ==================================
 AForm* Intern::makeForm(const std::string name, const std::string target) {
 	int					formIndex = -1;
-	bool				isValid = false;
 	const std::string	validForms[] = {"presidential pardon", 
 		"robotomy request", "shrubbery creation"};
 	
-	while (++formIndex < 3) {
-		if (name == validForms[formIndex]) {
-			isValid = true;
+	while (++formIndex < 3)
+		if (name == validForms[formIndex])
 			break;
-		}
-	}
-	if (isValid)
-		std::cout << "Intern creates " << name << std::endl;
-	// {
 	switch (formIndex) {
 		case 0:
+			std::cout << "Intern creates " << name << std::endl;
 			return (new PresidentialPardonForm(target));
 		case 1:
+			std::cout << "Intern creates " << name << std::endl;
 			return (new RobotomyRequestForm(target));
 		case 2:
+			std::cout << "Intern creates " << name << std::endl;
 			return (new ShrubberyCreationForm(target));
-		// default:
-			// std::cout << "Provided form name does not exist" << std::endl;
-		// }
+		default:
+			std::cout << "Provided form name does not exist" << std::endl;	
+			return (NULL);
 	}
-	std::cout << "Provided form name does not exist" << std::endl;
-	return (NULL);
 }
 // ============================================================================

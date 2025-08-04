@@ -27,13 +27,6 @@ void printHeader(const std::string& title) {
 	std::cout << MAGENTA << "========== " << title << " ==========" << RESET << std::endl;
 }
 
-void printFormPtr(AForm* form) {
-	if (form)
-		std::cout << GREEN << *form << RESET << std::endl;
-	else
-		std::cerr << RED << "Form pointer is null!" << RESET << std::endl;
-}
-
 int main() {
 	try {
 		printHeader("Intern Tests");
@@ -41,21 +34,37 @@ int main() {
 		Intern someRandomIntern;
 		AForm* rrf;
 
-		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-		printFormPtr(rrf);
-		delete rrf;
+		std::cout << CYAN << "\nTesting RobotomyRequestForm with Intern" << RESET << std::endl;
+		try {
+			rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+			delete rrf;
+		} catch (const std::exception &e) {
+			std::cerr << RED << "Exception caught: " << e.what() << RESET << std::endl;
+		}
+		
+		std::cout << CYAN << "\nTesting PresidentialPardonForm with Intern" << RESET << std::endl;
+		try {
+			rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
+			delete rrf;
+		} catch (const std::exception &e) {
+			std::cerr << RED << "Exception caught: " << e.what() << RESET << std::endl;
+		}
+		
+		std::cout << CYAN << "\nTesting ShrubberyCreationForm with Intern" << RESET << std::endl;
+		try {
+			rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+			delete rrf;
+		} catch (const std::exception &e) {
+			std::cerr << RED << "Exception caught: " << e.what() << RESET << std::endl;
+		}
 
-		rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
-		printFormPtr(rrf);
-		delete rrf;
-
-		rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
-		printFormPtr(rrf);
-		delete rrf;
-
-		rrf = someRandomIntern.makeForm("unknown form", "Bender");
-		printFormPtr(rrf);
-		delete rrf;
+		std::cout << CYAN << "\nTesting invalid form name" << RESET << std::endl;
+		try {
+			rrf = someRandomIntern.makeForm("random form", "Bender");
+			delete rrf;
+		} catch (const std::exception &e) {
+			std::cerr << RED << "Exception caught: " << e.what() << RESET << std::endl;
+		}
 
 		printHeader("Form Execution Tests");
 

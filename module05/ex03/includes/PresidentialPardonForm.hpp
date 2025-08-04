@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/30 14:17:38 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/30 18:52:22 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/08/01 17:12:03 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class PresidentialPardonForm: public AForm {
 	public:
 		PresidentialPardonForm();
 		~PresidentialPardonForm();
-		PresidentialPardonForm(const std::string target);
+		PresidentialPardonForm(const std::string& target);
 		PresidentialPardonForm(const PresidentialPardonForm& other);
 		PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
 		

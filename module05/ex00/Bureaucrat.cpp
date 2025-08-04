@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 15:37:03 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/29 20:05:25 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/08/01 14:42:10 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void Bureaucrat::incrementGrade() {
 		if (this->_grade <= 1)
 			throw GradeTooHighException();
 		this->_grade--;
-	} catch (const std::exception& e) { //ver se é necessario msm utilizar const aqui
+	} catch (const std::exception& e) {
 		std::cerr << "Exception caught by Bureaucrat " << this->_name
 					<< " when try to increment grade: " << e.what()
 					<< "\ncurrent grade: " << this->_name
@@ -70,7 +70,7 @@ void Bureaucrat::decrementGrade() {
 		if (this->_grade >= 150)
 			throw GradeTooLowException();
 		this->_grade++;
-	} catch (const std::exception& e) { //ver se é necessario msm utilizar const aqui
+	} catch (const std::exception& e) {
 		std::cerr << "Exception caught by Bureaucrat " << this->_name
 					<< " when try to decrement grade: " << e.what()
 					<< "\ncurrent grade: " << this->_grade

@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/31 14:11:12 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/08/01 14:28:27 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/08/01 17:30:37 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,27 +29,42 @@ Intern& Intern::operator=(const Intern& other) {
 // ============================================================================
 
 // ================================= METHODS ==================================
-AForm* Intern::makeForm(const std::string name, const std::string target) {
-	int					formIndex = -1;
-	const std::string	validForms[] = {"presidential pardon", 
-		"robotomy request", "shrubbery creation"};
+AForm* Intern::makeForm(const std::string& name, const std::string& target) {
+	const std::string	validForms[] = {
+		"presidential pardon", 
+		"robotomy request", 
+		"shrubbery creation"};
+	AForm* (Intern::* createForm[3])(const std::string&) ={
+		&Intern::_createPresidentialForm,
+		&Intern::_createRobotomyForm,
+		&Intern::_createShrubberyForm
+	};
 	
-	while (++formIndex < 3)
-		if (name == validForms[formIndex])
-			break;
-	switch (formIndex) {
-		case 0:
+	for (int i = 0; i < 3; i++) {
+		if (validForms[i] == name) {
 			std::cout << "Intern creates " << name << std::endl;
-			return (new PresidentialPardonForm(target));
-		case 1:
-			std::cout << "Intern creates " << name << std::endl;
-			return (new RobotomyRequestForm(target));
-		case 2:
-			std::cout << "Intern creates " << name << std::endl;
-			return (new ShrubberyCreationForm(target));
-		default:
-			std::cout << "Provided form name does not exist" << std::endl;	
-			return (NULL);
+			return ((this->*createForm[i])(target));
+		}
 	}
+	std::cout << "Provided form name does not exist" << std::endl;
+	throw NotFoundException();
+}
+
+AForm* Intern::_createPresidentialForm(const std::string& target) {
+	return (new PresidentialPardonForm(target));
+}
+
+AForm* Intern::_createRobotomyForm(const std::string& target) {
+	return (new RobotomyRequestForm(target));
+}
+
+AForm* Intern::_createShrubberyForm(const std::string& target) {
+	return (new ShrubberyCreationForm(target));
+}
+// ============================================================================
+
+// ============================== EXCEPTION ===================================
+const char* Intern::NotFoundException::what() const throw() {
+	return ("Invalid form name");
 }
 // ============================================================================

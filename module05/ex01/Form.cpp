@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 18:19:07 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/07/31 16:49:53 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/08/01 14:43:32 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ AForm& AForm::operator=(const AForm& other) {
 
 // ============================== GETTERS =====================================
 const std::string&	AForm::getName() 		const { return (this->_name); }
-bool 				AForm::getIsSigned()		const { return (this->_isSigned); }
+bool 				AForm::getIsSigned()	const { return (this->_isSigned); }
 int					AForm::getGradeToSign()	const { return (this->_gradeToSign); }
 int					AForm::getGradeToExec()	const { return (this->_gradeToExec); }
 // ============================================================================

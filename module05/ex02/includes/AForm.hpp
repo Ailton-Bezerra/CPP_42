@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/23 18:19:17 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/08/01 14:09:13 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/08/01 14:45:13 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 #define AFORM_HPP
 
 #include <iostream>
-// #include "Bureaucrat.hpp"
 
 class Bureaucrat; // Forward declaration
 
-// os atributos precisam permanecer privados
 class AForm {
 	public:
 		AForm();
@@ -28,7 +26,6 @@ class AForm {
 		AForm& operator=(const AForm& other);
 
 		void	beSigned(const Bureaucrat& bureaucrat);
-		// preciso implementar
 		void	execute(Bureaucrat const & executor) const;
 
 		//getters

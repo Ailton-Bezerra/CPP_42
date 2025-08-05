@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 13:22:27 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/08/05 16:27:20 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/08/05 16:37:35 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,9 +98,6 @@ void ScalarConverter::convertFloat(const std::string& str) {
 		std::cout << YELLOW "int:\timpossible" RESET << std::endl;
 	else
 		std::cout << GREEN "int:\t" <<  static_cast<int>(number) << RESET << std::endl;
-	std::cout << FLT_MAX << std::endl;
-	std::cout << std::endl;
-	std::cout << FLT_MIN << std::endl;
 	std::cout << GREEN "float:\t" << static_cast<float>(number) << "f" RESET << std::endl;
 	std::cout << GREEN "double:\t" << number << RESET << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 13:22:27 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/08/05 13:03:41 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/08/05 16:27:20 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,37 @@ ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other) {
 // ============================== CONVERT METHODS =============================
 void ScalarConverter::convert(const std::string& str) {
 	std::cout << std::fixed << std::setprecision(1);
-	if (isChar(str))
+	
+	if (isPseudo(str))
+		convertPseudo(str);
+	else if (isChar(str))
 		convertChar(str);
 	else if (isInt(str))
 		convertInt(str);
-	if (isFloat(str))
+	else if (isFloat(str))
 		convertFloat(str);
-		// std::cout << GREEN "float: " RESET << RED "impossible" RESET << std::endl;
-	// if (!isDouble(str))
-	// 	std::cout << GREEN "char: " RESET << RED "impossible" RESET << std::endl;
+	else if (isDouble(str))
+		convertDouble(str);
+	else
+	{
+		std::cout << YELLOW "char:\timpossible" RESET << std::endl;
+		std::cout << YELLOW "int:\timpossible" RESET << std::endl;
+		std::cout << YELLOW "float:\timpossible" RESET << std::endl;
+		std::cout << YELLOW "double:\timpossible" RESET << std::endl;	
+	}
+}
+
+void ScalarConverter::convertPseudo(const std::string& str) {
+	std::cout << YELLOW "char:\timpossible" RESET << std::endl;
+	std::cout << YELLOW "int:\timpossible" RESET << std::endl;
+	if (str == "-inf" || str == "+inf" || str == "nan") {
+		std::cout << GREEN "float:\t" << str << "f" RESET << std::endl;
+		std::cout << GREEN "double:\t" << str << RESET << std::endl; 	
+	}
+	else {
+		std::cout << GREEN "float:\t" << str << RESET << std::endl;
+		std::cout << GREEN "double:\t" << str.substr(0, str.size() - 1) << RESET << std::endl; 	
+	}
 }
 
 void ScalarConverter::convertChar(const std::string& str) {
@@ -58,9 +80,6 @@ void ScalarConverter::convertInt(const std::string& str) {
 		std::cout << YELLOW "char:\timpossible" RESET << std::endl;
 	else
 		std::cout << YELLOW "char:\tNon displayable" RESET << std::endl;
-	// if (number < std::numeric_limits<int>::min() || number > std::numeric_limits<int>::max())
-	// 	std::cout << YELLOW "int:\timpossible" RESET << std::endl;
-	// else (não precisa pq o codigo so cai nessa condição se for int)
 	std::cout << GREEN "int:\t" <<  iNumber << RESET << std::endl;
 	std::cout << GREEN "float:\t" << static_cast<float>(number) << "f" RESET << std::endl;
 	std::cout << GREEN "double:\t" << number << RESET << std::endl;
@@ -79,14 +98,45 @@ void ScalarConverter::convertFloat(const std::string& str) {
 		std::cout << YELLOW "int:\timpossible" RESET << std::endl;
 	else
 		std::cout << GREEN "int:\t" <<  static_cast<int>(number) << RESET << std::endl;
+	std::cout << FLT_MAX << std::endl;
+	std::cout << std::endl;
+	std::cout << FLT_MIN << std::endl;
 	std::cout << GREEN "float:\t" << static_cast<float>(number) << "f" RESET << std::endl;
 	std::cout << GREEN "double:\t" << number << RESET << std::endl;
-	
 }
 
+void ScalarConverter::convertDouble(const std::string& str) {
+	double number = std::atof(str.c_str());
+	
+	if (number > 32 && number < 127)
+		std::cout << GREEN "char:\t\'" << static_cast<char>(number) << "\'" RESET << std::endl;
+	else if (number < -128 || number > 127 )
+		std::cout << YELLOW "char:\timpossible" RESET << std::endl;
+	else
+		std::cout << YELLOW "char:\tNon displayable" RESET << std::endl;
+	if (number > INT_MAX || number < INT_MIN)
+		std::cout << YELLOW "int:\timpossible" RESET << std::endl;
+	else
+		std::cout << GREEN "int:\t" <<  static_cast<int>(number) << RESET << std::endl;
+	if (number > FLT_MAX || number < FLT_MIN)
+		std::cout << YELLOW "float:\timpossible" RESET << std::endl;
+	else
+		std::cout << GREEN "float:\t" << static_cast<float>(number) << "f" RESET << std::endl;
+	std::cout << GREEN "double:\t" << number << RESET << std::endl;
+}
 // ============================================================================
 
 // ============================== CHECK METHODS ===============================
+bool ScalarConverter::isPseudo(const std::string& str) {
+	const char* pseudo[6] = {"-inff", "+inff", "nanf", "-inf", "+inf", "nan"};
+	
+	for (int i = 0; i < 6; i++) {
+		if (pseudo[i] == str)
+			return (true);
+	}
+	return (false);
+}
+
 bool ScalarConverter::isChar(const std::string& str) {
 	if (str.size() == 1 && !std::isdigit(str[0]))
 		return (true);
@@ -100,20 +150,13 @@ bool ScalarConverter::isInt(const std::string& str) {
 	errno = 0;
 	value = std::strtol(str.c_str(), &end, 10);
 	
-	// // ! vericar se posso usar isso 
-	// if (value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max())
-	// 	return (false);
+	if (errno == ERANGE || *end != '\0' || end == str.c_str())
+		return (false);
 	if (value < INT_MIN || value > INT_MAX)
 		return (false);
-	
-	if (errno == ERANGE || *end != '\0')
-		return (false);
-	if (str[0] == '+' || str[0] == '-') {
-		if (str.size() == 1 || !std::isdigit(str[1]))
-			return (false);
-	}
 	return (true);
 }
+
 bool ScalarConverter::isFloat(const std::string& str) {
 	char *end;
 	errno = 0;
@@ -125,5 +168,14 @@ bool ScalarConverter::isFloat(const std::string& str) {
 		return (true);
 	return (false);
 }
-// bool ScalarConverter::isDouble(const std::string& str) {}
+
+bool ScalarConverter::isDouble(const std::string& str) {
+	char *end;
+	errno = 0;
+	
+	std::strtod(str.c_str(), &end);
+	if (errno == ERANGE || *end != '\0' || end == str.c_str())
+		return (false);
+	return (true);
+}
 // ============================================================================

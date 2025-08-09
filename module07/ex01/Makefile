@@ -1,6 +1,6 @@
 NAME 	:= iter
 CC      := c++ -std=c++98
-CFLAGS  := -Wextra -Wall -Werror -Wshadow -g3
+CFLAGS  := -Wextra -Wall -Werror -Wshadow
 
 SRCS_DIR	:= ./
 SRCS		:= $(addprefix $(SRCS_DIR), main.cpp)

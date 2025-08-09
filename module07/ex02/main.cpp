@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/07 13:32:15 by ailbezer          #+#    #+#             */
+/*   Updated: 2025/08/07 18:47:32 by ailbezer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "Array.hpp"
 #include <iostream>
@@ -160,10 +170,10 @@ void	testCopyConstructor(Array<int> & array)
 		if (copy[i] != array[i])
 		{
 			ok = false;
-			std::cout << RED "[" << copy[i] << "] " RESET;
+			std::cout << RED "[" << copy[i] << "]" RESET;
 		}
 		else
-			std::cout << GREEN "[" << copy[i] << "] " RESET;
+			std::cout << GREEN "[" << copy[i] << "]" RESET;
 	}
 	std::cout << std::endl << "--> Copy value checker: ";
 	if (ok == false)

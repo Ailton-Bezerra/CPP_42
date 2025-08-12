@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 15:59:32 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/08/12 15:59:35 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/08/12 16:07:02 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main () {
 	std::cout << vt[1] << ", ";
 	std::cout << vt[2] << std::endl;
 
-	 it = easyfind(vt, tofind);
+	it = easyfind(vt, tofind);
 
 	while (it != vt.end()) {
 	    std::cout << "Value " << tofind << " found!" << std::endl;

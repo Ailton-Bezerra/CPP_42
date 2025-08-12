@@ -1,5 +1,14 @@
-
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RPN.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/12 19:15:29 by ailbezer          #+#    #+#             */
+/*   Updated: 2025/08/12 19:15:39 by ailbezer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "RPN.hpp"
 
@@ -61,6 +70,3 @@ int RPN::evaluate(const std::string& expression) {
 		throw (std::runtime_error("missing operand"));
 	return (this->_stack.top());
 }
-
-
-

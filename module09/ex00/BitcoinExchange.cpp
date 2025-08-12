@@ -1,4 +1,14 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/12 19:14:29 by ailbezer          #+#    #+#             */
+/*   Updated: 2025/08/12 19:14:51 by ailbezer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
@@ -13,8 +23,6 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other) {
 }
 
 BitcoinExchange::~BitcoinExchange() {}
-
-
 
 bool BitcoinExchange::isValidDate(const std::string& date) const {
 	if (date.size() != 10 || date[4] != '-' || date[7] != '-')
@@ -88,7 +96,6 @@ void BitcoinExchange::processInputFile(const std::string& filename) const {
 			continue;
 		}
 		if (!isValidValue(valueStr)) {
-	//		std::cout << "valueStr = " << valueStr<< std::endl;
 			std::cout << "Error: invalid value => " << valueStr << std::endl;
 			continue;
 		}
@@ -108,5 +115,3 @@ void BitcoinExchange::processInputFile(const std::string& filename) const {
 		std::cout << date << " => " << value << " = " << result << std::endl;
 	}
 }
-
-

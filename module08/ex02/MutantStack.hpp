@@ -1,15 +1,21 @@
-
-
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/12 16:00:36 by ailbezer          #+#    #+#             */
+/*   Updated: 2025/08/12 16:00:54 by ailbezer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef MUTANTSTACK_HPP
 #define MUTANTSTACK_HPP
 
-
 #include <iostream>
 #include <stack>
 #include <algorithm>
-
 
 template < typename T, typename C = std::deque<T> >
 class MutantStack: public std::stack<T, C> {
@@ -27,8 +33,7 @@ class MutantStack: public std::stack<T, C> {
 					this->c = other.c;
 				return (*this);
 		}
-
-
+		
 		MutantStack<T, C>::iterator begin() {return (this->c.begin());}
 		MutantStack<T, C>::iterator end() {return (this->c.end());}
 		MutantStack<T, C>::const_iterator begin() const {return (this->c.begin());}
@@ -37,9 +42,6 @@ class MutantStack: public std::stack<T, C> {
 		MutantStack<T, C>::reverse_iterator rend() {return (this->c.rend());}
 		MutantStack<T, C>::const_reverse_iterator rbegin() const {return (this->c.rbegin());}
 		MutantStack<T, C>::const_reverse_iterator rend() const {return (this->c.rend());}
-
-
-
 };
 
 #endif

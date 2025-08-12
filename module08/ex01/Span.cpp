@@ -6,13 +6,16 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 15:59:49 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/08/12 16:00:03 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/08/12 16:14:19 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
+//=================================== OCF =====================================
 Span::Span(): _numbers(), _maxSize(0) {}
+Span::Span(unsigned int N): _numbers(), _maxSize(N) {}
+Span::Span(const Span& other): _numbers(other._numbers), _maxSize(other._maxSize) {}
 Span::~Span() {}
 
 Span& Span::operator=(const Span& other) {
@@ -23,11 +26,9 @@ Span& Span::operator=(const Span& other) {
 	}
 	return (*this);
 }
+//=============================================================================
 
-Span::Span(unsigned int N): _numbers(), _maxSize(N) {}
-
-Span::Span(const Span& other): _numbers(other._numbers), _maxSize(other._maxSize) {}
-
+//================================ METHODS ====================================
 void Span::addNumber(int n) {
 	if (this->_numbers.size() >= this->_maxSize)
 		throw std::runtime_error("Span is full");
@@ -58,3 +59,4 @@ int Span::shortestSpan() {
 	}
 	return (shortspan);
 }
+//===============================================================================

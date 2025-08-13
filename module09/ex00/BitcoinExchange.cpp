@@ -6,7 +6,7 @@
 /*   By: ailbezer <ailbezer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 19:14:29 by ailbezer          #+#    #+#             */
-/*   Updated: 2025/08/12 19:14:51 by ailbezer         ###   ########.fr       */
+/*   Updated: 2025/08/13 14:19:00 by ailbezer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,10 @@ void BitcoinExchange::loadDatabase(const std::string& filename) {
 	std::ifstream file(filename.c_str());
 	if (!file.is_open())
 		throw (std::runtime_error("couldn't open data base file"));
-	
+
 	std::string line;
-	std::getline(file, line); //jump header
-			
+	std::getline(file, line);
+
 	while (std::getline(file, line)) {
 
 		std::stringstream ss(line);
@@ -73,8 +73,8 @@ void BitcoinExchange::processInputFile(const std::string& filename) const {
 		throw (std::runtime_error("Couldn't open input file"));
 
 	std::string line;
-	std::getline(file, line); // jump header
-	
+	std::getline(file, line);
+
 	while (std::getline(file, line)) {
 		if (line.empty())
 			continue;
@@ -103,7 +103,10 @@ void BitcoinExchange::processInputFile(const std::string& filename) const {
 		double value = std::atof(valueStr.c_str());
 
 		std::map<std::string, double>::const_iterator it = this->_data.lower_bound(date);
-		if (it != this->_data.end() || it->first != date) {
+		if (it == this->_data.end())
+			--it;
+
+		else if (it->first != date) {
 			if (it == _data.begin()) {
 				std::cout << "No early date available for " << date << std::endl;
 				continue;
@@ -111,7 +114,11 @@ void BitcoinExchange::processInputFile(const std::string& filename) const {
 			--it;
 		}
 		
+		// std::cout << "it->first: " << it->first << std::endl;
+		// std::cout << "Value: " << value << std::endl;
+		// std::cout << "it->second: " << it->second << std::endl;
 		double result = value * it->second;
+		// std::cout << "result: " << result << std::endl;
 		std::cout << date << " => " << value << " = " << result << std::endl;
 	}
 }
